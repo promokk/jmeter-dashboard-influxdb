@@ -23,7 +23,7 @@
    * **influxdbToken = {influxdbToken}** - 
    ваш [API Token](https://docs.influxdata.com/influxdb/cloud/admin/tokens/create-token/)
 
-![Backend Listener - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Backend_Listener.png)
+![Backend Listener - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Backend_Listener.png)
 
 ---
 ## Возможности дашборда
@@ -51,7 +51,7 @@
 3. **RunID** - выводит значение eventTags из Backend listener. Значение RunID кликабельно. Открывает временной
 интервал проводимого теста.
 
-![Run Test - гифка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Run_Test.gif)
+![Run Test - гифка](https://raw.githubusercontent.com/promokk//jmeter-custom-influxdb/main/data/Run_Test.gif)
 
 ---
 ### Summary
@@ -62,7 +62,7 @@
 4. Кол-во запросов
 5. Сеть
 
-![Summary - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Summary.png)
+![Summary - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Summary.png)
 
 ---
 ### RPS / Response Times
@@ -72,14 +72,14 @@
 3. Кол-во запросов 4xx и 5xx в секунду
 4. Количесво / Процент неудачных запросов по кодам
 
-![RPS/Response Time - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/RPS_Response_Time.png)
+![RPS/Response Time - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/RPS_Response_Time.png)
 
 ---
 ### Error
 Таблица Error Info - краткая информация об ошибках.  
 Поле Response Message отображает наименование ошибки. Полное сообщение об ошибки (тело ответа) **не выводится**.
 
-![Error - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Error.png)
+![Error - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Error.png)
 
 ---
 ### Transaction Table
@@ -90,20 +90,20 @@
 4. Время отклика (95th percentile / 99th percentile)
 5. Процент неудачных запросов
 
-![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Transaction_Table.png)
+![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Transaction_Table.png)
 
 ---
 ### Network Traffic
 Отображает полученные байты / отправленные байты
 
-![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Network_Traffic.png)
+![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Network_Traffic.png)
 
 ---
 ### Correlation
 Аннотация _Сorrelation_ позволяет поставить маркер на панели. Данный маркер будет отображаться на всех панелях.  
 **Обязательное условие** - при создании аннотации небоходимо указать tags --> **lt**.
 
-![Correlation - гифка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Correlation.gif)
+![Correlation - гифка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Correlation.gif)
 
 ---
 ## Пример запуска теста в Non-GUI mode
