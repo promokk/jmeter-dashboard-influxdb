@@ -15,10 +15,10 @@
    * UID - указать uid-дашборда (если был изменен при импорте)
    * dashboardName - указать наименование дашборда (если было изменено при импорте)
 4. Внести несколько изменений в Backend Listener
-   * **application = ${__TestPlanName}** - передается название jmx-файла
+   * **application = ${__TestPlanName}** - название jmx-файла
    * **measurement = jmeter** - наименование Database в настройках подключения к InfluxDB
-   * **testTitle = ${__P(nameTest)}** - передается название теста (либо другая ~~полезная~~ информация)
-   * **eventTags = ${__time()}** - передается уникальный RunID сценария
+   * **testTitle = ${__P(nameTest)}** - название теста (либо другая ~~полезная~~ информация)
+   * **eventTags = ${__time()}** - уникальный RunID сценария
    * **influxdbToken = {influxdbToken}** - 
    ваш [API Token](https://docs.influxdata.com/influxdb/cloud/admin/tokens/create-token/)
 
