@@ -22,7 +22,7 @@
    * **influxdbToken = {influxdbToken}** - 
    ваш [API Token](https://docs.influxdata.com/influxdb/cloud/admin/tokens/create-token/)
 
-[!Backend Listener - картинка](ссылка на картинку Backend_Listener.png)
+![Backend Listener - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Backend_Listener.png)
 
 ---
 ## Возможности дашборда
@@ -50,7 +50,7 @@
 3. **RunID** - выводит значение eventTags из Backend listener. Значение RunID кликабельно. Открывает временной
 интервал проводимого теста.
 
-[!Run Test - гифка](ссылка на картинку Run_Test.gif)
+![Run Test - гифка](ссылка на картинку Run_Test.gif)
 
 ---
 ### Summary
@@ -61,7 +61,7 @@
 4. Кол-во запросов
 5. Сеть
 
-[!Summary - картинка](ссылка на картинку Summary.png)
+![Summary - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Summary.png?token=GHSAT0AAAAAACVDPZTGXDU2ILRH5DF62ERKZWA5W4A)
 
 ---
 ### RPS / Response Times
@@ -71,14 +71,14 @@
 3. Кол-во запросов 4xx и 5xx в секунду
 4. Количесво / Процент неудачных запросов по кодам
 
-[!RPS/Response Time - картинка](ссылка на картинку RPS_Response_Time.png)
+![RPS/Response Time - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/RPS_Response_Time.png?token=GHSAT0AAAAAACVDPZTHHGOSWLW5DL4O3OTAZWA5X7Q)
 
 ---
 ### Error
 Таблица Error Info - краткая информация об ошибках.  
 Поле Response Message отображает наименование ошибки. Полное сообщение об ошибки (тело ответа) **не выводится**.
 
-[!Error - картинка](ссылка на картинку Error.png)
+![Error - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Error.png?token=GHSAT0AAAAAACVDPZTHXI665XX7JSQPSOW4ZWA5YQA)
 
 ---
 ### Transaction Table
@@ -89,28 +89,26 @@
 4. Время отклика (95th percentile / 99th percentile)
 5. Процент неудачных запросов
 
-[!Transaction Table - картинка](ссылка на картинку Transaction_Table.png)
+![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Transaction_Table.png?token=GHSAT0AAAAAACVDPZTGEVU4TBLINMPRWQTWZWA5Y5A)
 
 ---
 ### Network Traffic
 Отображает полученные байты / отправленные байты
 
-[!Transaction Table - картинка](ссылка на картинку Network_Traffic.png)
+![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Network_Traffic.png?token=GHSAT0AAAAAACVDPZTHXRYY6S6YLGWL4N6AZWA5ZVQ)
 
 ---
 ### Correlation
 Аннотация _Сorrelation_ позволяет поставить маркер на панели. Данный маркер будет отображаться на всех панелях.  
 **Обязательное условие** - при создании аннотации небоходимо указать tags --> **lt**.
 
-[!Correlation - гифка](ссылка на картинку Correlation.gif)
+![Correlation - гифка](https://raw.githubusercontent.com/promokk/custom-dashboards/main/jmeter-dashboard/data/Correlation.gif?token=GHSAT0AAAAAACVDPZTHQN3M7CLLKZ26JXD6ZWA52FQ)
 
 ---
 ## Пример запуска теста в Non-GUI mode
 Пример для [распределенного запуска](https://jmeter.apache.org/usermanual/remote-test.html).
-Обратите внимание при распределенном запуске
-_properties_ передаются с помощью -G{param}.  
-Чтобы передать _properties_ в Backend Listener
-необходимо использовать -D{param} (используется для указания testTitle).  
+Обратите внимание при распределенном запуске _properties_ передаются с помощью -G{param}.  
+Чтобы передать _properties_ в Backend Listener необходимо использовать -D{param} (используется для указания testTitle).  
 
 С параметрами командной строки можно ознакомиться по
 [ссылке](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
