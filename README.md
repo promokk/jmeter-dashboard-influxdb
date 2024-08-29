@@ -1,5 +1,5 @@
-# Jmeter-custom-influxdb
-Дашбоард для мониторинга запусков сценариев НТ написанных с помощью интсрумента нагрузочного
+# Jmeter-dashboard-influxdb
+Дашборд Grafana для мониторинга запусков сценариев НТ написанных с помощью интсрумента нагрузочного
 тестирования [Jmeter](https://jmeter.apache.org/).  
 Отправка метрик осуществляется с помощью 
 [Backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener)
@@ -8,7 +8,7 @@
 ---
 # Оглавление
 * [С чего начать?](#begin)
-* [Возможности дашборда](#dashboardFeatures)
+* [Описание дашборда](#dashboardDescription)
   * [Run Test](#runTest)
   * [Summary](#summary)
   * [RPS / Response Times](#rps)
@@ -21,24 +21,23 @@
 ---
 ## С чего начать? <a id="begin"></a>
 Инструкция перед началом эксплуатации:
-1. Импортировать дашборд
-2. Настроить подключение к InfluxDB через Data sources
-3. Изменить параметры дашборда
-   * Открыть Home --> Dashboards --> jmeter-custom-influxdb --> Settings --> Variables
-   * UID - указать uid-дашборда (если был изменен при импорте)
-   * dashboardName - указать наименование дашборда (если было изменено при импорте)
+1. Скачать и импортировать дашборд --> jmeter-dashboard-influxdb.json
+2. Во время импорта указать параметры: InfluxDB, UID, dashboardName 
+   * UID должен быть равен Unique identifier (UID)
+   * dashboardName должен быть равен Name
+4. Скачать пример скрипта Jmeter из репозитория --> jmeter-script/scriptExample.jmx
 4. Внести несколько изменений в Backend Listener
-  * **Backend Listener implementation = InfluxdbBackendListenerClient** - класс реализации BackendListenerClient
-  * **application = ${__TestPlanName}** - название jmx-файла
-  * **testTitle = ${__P(testTitle)}** - название теста (либо другая ~~полезная~~ информация)
-  * **eventTags = ${__time()}** - уникальный RunID запуска
-  * **influxdbToken = {influxdbToken}** -
+   * **Backend Listener implementation = InfluxdbBackendListenerClient** - класс реализации BackendListenerClient
+   * **application = ${__TestPlanName}** - название jmx-файла
+   * **testTitle = ${__P(testTitle)}** - название теста (либо другая ~~полезная~~ информация)
+   * **eventTags = ${__time()}** - уникальный RunID запуска
+   * **influxdbToken = {influxdbToken}** -
     influxdb [API Token](https://docs.influxdata.com/influxdb/cloud/admin/tokens/create-token/)
 
-![Backend Listener - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Backend_Listener.png)
+![Backend Listener - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Backend_Listener.png)
 
 ---
-## Возможности дашборда <a id="dashboardFeatures"></a>
+## Описание дашборда <a id="dashboardDescription"></a>
 **ПРИМЕЧАНИЕ**
 * На всех панелях отображается одновременно информация о запросах и транзакциях. Учитывайте это при
 просмотре **_Summary_**.  
@@ -60,7 +59,7 @@
 3. **RunID** - выводит значение eventTags из Backend listener. Значение RunID кликабельно. Открывает временной
 интервал проводимого теста.
 
-![Run Test - гифка](https://raw.githubusercontent.com/promokk//jmeter-custom-influxdb/main/data/Run_Test.gif)
+![Run Test - гифка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Run_Test.gif)
 
 ---
 ### Summary <a id="summary"></a>
@@ -71,7 +70,7 @@
 4. Кол-во запросов
 5. Сеть
 
-![Summary - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Summary.png)
+![Summary - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Summary.png)
 
 ---
 ### RPS / Response Times <a id="rps"></a>
@@ -81,14 +80,14 @@
 3. Кол-во запросов 4xx и 5xx в секунду
 4. Количесво / Процент неудачных запросов по кодам
 
-![RPS/Response Time - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/RPS_Response_Time.png)
+![RPS/Response Time - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/RPS_Response_Time.png)
 
 ---
 ### Error <a id="error"></a>
 Таблица Error Info - краткая информация об ошибках.  
 Поле Response Message отображает наименование ошибки. Полное сообщение об ошибки (тело ответа) **не выводится**.
 
-![Error - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Error.png)
+![Error - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Error.png)
 
 ---
 ### Transaction Table <a id="transactionTable"></a>
@@ -99,26 +98,26 @@
 4. Время отклика (95th percentile / 99th percentile)
 5. Процент неудачных запросов
 
-![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Transaction_Table.png)
+![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Transaction_Table.png)
 
 ---
 ### Network Traffic <a id="network"></a>
 Отображает полученные байты / отправленные байты
 
-![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Network_Traffic.png)
+![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Network_Traffic.png)
 
 ---
 ### Correlation <a id="correlation"></a>
 Аннотация _Сorrelation_ позволяет поставить маркер на панели. Данный маркер будет отображаться на всех панелях.  
 **Обязательное условие** - при создании аннотации небоходимо указать tags --> **lt**.
 
-![Correlation - гифка](https://raw.githubusercontent.com/promokk/jmeter-custom-influxdb/main/data/Correlation.gif)
+![Correlation - гифка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Correlation.gif)
 
 ---
 ## Пример запуска в Non-GUI mode <a id="example"></a>
 Пример для [распределенного запуска](https://jmeter.apache.org/usermanual/remote-test.html).
 Обратите внимание при распределенном запуске _properties_ передаются с помощью -G{param}.  
-Чтобы передать _properties_ в Backend Listener необходимо использовать -D{param} (используется для указания testTitle).  
+Чтобы передать _properties_ в Backend Listener необходимо использовать -D{param} (используется для указания testTitle).
 
 С параметрами командной строки можно ознакомиться по
 [ссылке](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
