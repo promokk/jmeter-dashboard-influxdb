@@ -123,6 +123,6 @@
 [ссылке](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
 
 ~~~shell
-nohup /opt/jmeter/bin/jmeter -n -t scriptExample.jmx -X -R localhost,192.168.1.101 -DtestTitle=example > /dev/null 2>&1&
+nohup /opt/jmeter/bin/jmeter -n -t scriptExample.jmx -X -R server01,server02 -DtestTitle=example > /dev/null 2>&1&
 ~~~
 
