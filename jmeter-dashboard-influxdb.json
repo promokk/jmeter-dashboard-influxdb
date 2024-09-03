@@ -1990,7 +1990,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 3
+            "y": 19
           },
           "id": 1,
           "options": {
@@ -2213,7 +2213,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 3
+            "y": 19
           },
           "id": 51,
           "options": {
@@ -2443,7 +2443,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 11
+            "y": 27
           },
           "id": 2,
           "options": {
@@ -2599,7 +2599,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 11
+            "y": 27
           },
           "id": 22,
           "options": {
@@ -2751,7 +2751,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 19
+            "y": 35
           },
           "id": 13,
           "options": {
@@ -2966,7 +2966,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 19
+            "y": 35
           },
           "id": 12,
           "options": {
@@ -3190,7 +3190,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 27
+            "y": 43
           },
           "id": 53,
           "options": {
@@ -3308,7 +3308,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 27
+            "y": 43
           },
           "id": 44,
           "options": {
@@ -4010,7 +4010,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 13
+            "y": 21
           },
           "id": 46,
           "options": {
@@ -4198,12 +4198,6 @@
                 },
                 {
                   "condition": "AND",
-                  "key": "statut",
-                  "operator": "=",
-                  "value": "ok"
-                },
-                {
-                  "condition": "AND",
                   "key": "transaction",
                   "operator": "!=",
                   "value": "all"
@@ -4254,12 +4248,6 @@
                   "key": "application",
                   "operator": "=~",
                   "value": "/^$application$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "statut",
-                  "operator": "=",
-                  "value": "ok"
                 },
                 {
                   "condition": "AND",
@@ -5088,6 +5076,6 @@
   "timezone": "",
   "title": "jmeter-dashboard-influxdb",
   "uid": "a612dc52-1277-4242-a2d9-bcfb19fbf09f",
-  "version": 57,
+  "version": 60,
   "weekStart": ""
 }

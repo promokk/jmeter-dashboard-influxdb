@@ -5,6 +5,8 @@
 [Backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener)
 в InfluxDB (Query Language: InfluxQL).
 
+Дашборд загружен в [Grafana Labs](https://grafana.com/grafana/dashboards/21818-jmeter-dashboard-influxdb/).
+
 ---
 # Оглавление
 * [С чего начать?](#begin)
@@ -30,7 +32,7 @@
    * **Backend Listener implementation = InfluxdbBackendListenerClient** - класс реализации BackendListenerClient
    * **application = ${__TestPlanName}** - название jmx-файла
    * **testTitle = ${__P(testTitle)}** - название теста (либо другая ~~полезная~~ информация)
-   * **eventTags = ${__time()}** - уникальный RunID запуска
+   * **eventTags = ${__time()}** - уникальный RunID
    * **influxdbToken = {influxdbToken}** -
     influxdb [API Token](https://docs.influxdata.com/influxdb/cloud/admin/tokens/create-token/)
 
@@ -109,7 +111,7 @@
 ---
 ### Correlation <a id="correlation"></a>
 Аннотация _Сorrelation_ позволяет поставить маркер на панели. Данный маркер будет отображаться на всех панелях.  
-**Обязательное условие** - при создании аннотации необходимо указать tags --> **lt**.
+**Обязательное условие** - при создании аннотации необходимо указать tags = lt.
 
 ![Correlation - гифка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Correlation.gif)
 
@@ -125,4 +127,24 @@
 ~~~shell
 nohup /opt/jmeter/bin/jmeter -n -t scriptExample.jmx -X -R server01,server02 -DtestTitle=example > /dev/null 2>&1&
 ~~~
+
+Dashboard for Jmeter using Backend listener and InfluxDB.  
+Detailed information on [GitHub](https://github.com/promokk/jmeter-dashboard-influxdb).
+
+**The dashboard contains:**
+* _Run Test_ - status of running / completed tests
+* _Summary_ - basic information for analysis
+* _RPS / Response Times_ - successful and unsuccessful requests, response times
+* _Error_ - error information
+* _Transaction Table_ - request / transaction statistics
+* _Network Traffic_ - bytes received / bytes sent
+
+**Before running the test for the first time, you need to change the Backend Listener:**
+* Backend Listener implementation = InfluxdbBackendListenerClient
+* application = ${__TestPlanName} --> name jmx-file
+* testTitle = ${__P(testTitle)} --> test title (property is passed at startup)
+* eventTags = ${__time()} --> unique RunID
+* influxdbToken = {influxdbToken} --> influxdb API Token
+
+
 
