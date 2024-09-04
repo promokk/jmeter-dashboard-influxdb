@@ -48,9 +48,8 @@
 * Использование _Assertion_ влияет на отображение ошибок 4xx и 5xx на панелях. В случае неудачной проверки
 вместо кода ошибки будет отображаться сообщение - Assertion errors.
 * Тест обязательно должен завершаться корректно. Либо по истечении времени, 
-либо должен быть остановлен с помощью /jmeter/bin/stoptest.sh или shutdown.sh. Это влияет на работу таблицы Run Test. 
-* Дашборд может отображать некорректное значение RPS, 
-если используется распределенный запуск Jmeter с подаваемой нагрузкой менее 20 RPS.
+либо должен быть остановлен с помощью /jmeter/bin/stoptest.sh или shutdown.sh. 
+Влияет на корректное отображение Status в таблице Run Test.
 
 ---
 ### Run Test <a id="runTest"></a>
@@ -117,34 +116,11 @@
 
 ---
 ## Пример запуска в Non-GUI mode <a id="example"></a>
-Пример для [распределенного запуска](https://jmeter.apache.org/usermanual/remote-test.html).
-Обратите внимание: при распределенном запуске _properties_ передаются с помощью -G{param}.  
-Чтобы передать _properties_ в Backend Listener необходимо использовать -D{param} (используется для указания testTitle).
-
-С параметрами командной строки можно ознакомиться по
-[ссылке](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
+Пример для [распределенного запуска](https://jmeter.apache.org/usermanual/remote-test.html).  
+Для распределенного запуска желательно использовать [mode](https://jmeter.apache.org/usermanual/remote-test.html#sendermode)
+StrippedAsynch или Asynch - позволит собирать данные в асинхронном режиме. Выборка данных будет точнее.  
+С параметрами командной строки можно ознакомиться по [ссылке](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
 
 ~~~shell
-nohup /opt/jmeter/bin/jmeter -n -t scriptExample.jmx -X -R server01,server02 -DtestTitle=example > /dev/null 2>&1&
+nohup /opt/jmeter/bin/jmeter -n -t scriptExample.jmx -X -R server01,server02 -Dmode=StrippedAsynch -DtestTitle=example > /dev/null 2>&1&
 ~~~
-
-Dashboard for Jmeter using Backend listener and InfluxDB.  
-Detailed information on [GitHub](https://github.com/promokk/jmeter-dashboard-influxdb).
-
-**The dashboard contains:**
-* _Run Test_ - status of running / completed tests
-* _Summary_ - basic information for analysis
-* _RPS / Response Times_ - successful and unsuccessful requests, response times
-* _Error_ - error information
-* _Transaction Table_ - request / transaction statistics
-* _Network Traffic_ - bytes received / bytes sent
-
-**Before running the test for the first time, you need to change the Backend Listener:**
-* Backend Listener implementation = InfluxdbBackendListenerClient
-* application = ${__TestPlanName} --> name jmx-file
-* testTitle = ${__P(testTitle)} --> test title (property is passed at startup)
-* eventTags = ${__time()} --> unique RunID
-* influxdbToken = {influxdbToken} --> influxdb API Token
-
-
-
