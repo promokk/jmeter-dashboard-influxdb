@@ -121,7 +121,7 @@
 ## Пример запуска в Non-GUI mode <a id="example"></a>
 Пример для [распределенного запуска](https://jmeter.apache.org/usermanual/remote-test.html).  
 Для распределенного запуска желательно использовать [mode](https://jmeter.apache.org/usermanual/remote-test.html#sendermode)
-StrippedAsynch или Asynch - позволит собирать данные в асинхронном режиме. Выборка данных будет точнее.  
+StrippedAsynch или Asynch - позволяет собирать данные в асинхронном режиме. Выборка данных будет точнее.  
 С параметрами командной строки можно ознакомиться по [ссылке](https://jmeter.apache.org/usermanual/get-started.html#non_gui).
 
 ~~~shell
