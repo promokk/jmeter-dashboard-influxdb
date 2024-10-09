@@ -54,32 +54,35 @@
 ---
 ### Run Test <a id="runTest"></a>
 Таблица Run Test - статус запущенных / завершенных тестов. Для работы данной таблицы нужно обязательно передавать
-уникальное значение eventTags в Backend listener.  
-1. **Status** - отображает состояние запуска, RUN или END. Запуск переходит в статус END при завершении теста.
-2. **Test** - выводит значение testTitle из Backend listener.
-3. **RunID** - выводит значение eventTags из Backend listener. Значение RunID кликабельно. Открывает временной
+уникальное значение eventTags в Backend listener.
+* Status - отображает состояние запуска, RUN или END. Запуск переходит в статус END при завершении теста.
+* RunID - выводит значение eventTags из Backend listener. Значение RunID кликабельно. Открывает временной
 интервал проводимого теста.
+* Start Time - время начала теста.
+* Application - наименование jmx-файла.
+* Test - выводит значение testTitle из Backend listener.
+* Duration - продолжительность теста.
 
 ![Run Test - гифка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Run_Test.gif)
 
 ---
 ### Summary <a id="summary"></a>
 Содержит основную информацию для первичного анализа:
-1. Активные / Завершившиеся потоки
-2. Пропускная способность 
-3. Кол-во / Процент ошибок
-4. Кол-во запросов
-5. Сеть
+* Активные / Завершившиеся потоки 
+* Пропускная способность 
+* Кол-во / Процент ошибок 
+* Кол-во запросов 
+* Сеть
 
 ![Summary - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Summary.png)
 
 ---
 ### RPS / Response Times <a id="rps"></a>
-Отображает успешные и неудачные запросы, времена отклика.
-1. Кол-во успешных / неудачных запросов в секунду
-2. Время отклика успешных / неудачных запросов
-3. Кол-во запросов 4xx и 5xx в секунду
-4. Количество / Процент неудачных запросов по кодам
+Отображает успешные и неудачные запросы, времена отклика. 
+* Кол-во успешных / неудачных запросов в секунду 
+* Время отклика успешных / неудачных запросов 
+* Кол-во запросов 4xx и 5xx в секунду 
+* Количество / Процент неудачных запросов по кодам
 
 ![RPS/Response Time - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/RPS_Response_Time.png)
 
@@ -93,17 +96,17 @@
 ---
 ### Transaction Table <a id="transactionTable"></a>
 Таблица Transaction Table - статистика запросов / транзакций.
-1. Наименование запроса / транзакции
-2. Кол-во запросов (общее / успешное / неудачное)
-3. Кол-во запросов в секунду (среднее / максимальное)
-4. Время отклика (95th percentile / 99th percentile)
-5. Процент неудачных запросов
+* Наименование запроса / транзакции 
+* Кол-во запросов (общее / успешное / неудачное)
+* Кол-во запросов в секунду (среднее / максимальное)
+* Время отклика (95th percentile / 99th percentile)
+* Процент неудачных запросов
 
 ![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Transaction_Table.png)
 
 ---
 ### Network Traffic <a id="network"></a>
-Отображает полученные байты / отправленные байты
+Полученные байты / отправленные байты
 
 ![Transaction Table - картинка](https://raw.githubusercontent.com/promokk/jmeter-dashboard-influxdb/main/data/Network_Traffic.png)
 
