@@ -5,7 +5,7 @@
 [Backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener)
 в InfluxDB (Query Language: InfluxQL).
 
-Дашборд загружен в [Grafana Labs](https://grafana.com/grafana/dashboards/21818-jmeter-dashboard-influxdb/).
+Дашборд доступен в [Grafana Labs](https://grafana.com/grafana/dashboards/21818-jmeter-dashboard-influxdb/).
 
 ---
 # Оглавление
@@ -27,7 +27,8 @@
 2. Во время импорта указать параметры: InfluxDB, UID, dashboardName 
    * UID должен быть равен Unique identifier (UID)
    * dashboardName должен быть равен Name
-4. Скачать пример скрипта Jmeter из репозитория --> jmeter-script/scriptExample.jmx
+4. Скачать пример скрипта Jmeter из репозитория --> [jmeter-script/](https://github.com/promokk/jmeter-dashboard-influxdb/tree/main/jmeter-script)  
+В скрипте используется плагин [Dummy Sampler](https://jmeter-plugins.org/wiki/DummySampler/)
 4. Внести несколько изменений в Backend Listener
    * **Backend Listener implementation = InfluxdbBackendListenerClient** - класс реализации BackendListenerClient
    * **application = ${__TestPlanName}** - название jmx-файла
