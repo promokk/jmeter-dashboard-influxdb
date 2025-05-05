@@ -3078,7 +3078,7 @@
                   "type": "fill"
                 }
               ],
-              "hide": true,
+              "hide": false,
               "measurement": "jmeter",
               "orderByTime": "ASC",
               "policy": "autogen",
@@ -3109,12 +3109,6 @@
                   "key": "application",
                   "operator": "=~",
                   "value": "/^$application$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "transaction",
-                  "operator": "=~",
-                  "value": "/^$request$/"
                 },
                 {
                   "condition": "AND",
@@ -3503,7 +3497,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 4
+            "y": 20
           },
           "id": 19,
           "options": {
@@ -4969,7 +4963,7 @@
     "list": [
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "InfluxDB",
           "value": "InfluxDB"
         },
@@ -5076,6 +5070,6 @@
   "timezone": "",
   "title": "jmeter-dashboard-influxdb",
   "uid": "a612dc52-1277-4242-a2d9-bcfb19fbf09f",
-  "version": 60,
+  "version": 62,
   "weekStart": ""
 }
