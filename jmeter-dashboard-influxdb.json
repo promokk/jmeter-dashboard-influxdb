@@ -1990,7 +1990,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 19
+            "y": 3
           },
           "id": 1,
           "options": {
@@ -2213,7 +2213,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 19
+            "y": 3
           },
           "id": 51,
           "options": {
@@ -2443,7 +2443,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 27
+            "y": 11
           },
           "id": 2,
           "options": {
@@ -2599,7 +2599,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 27
+            "y": 11
           },
           "id": 22,
           "options": {
@@ -2751,7 +2751,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 35
+            "y": 19
           },
           "id": 13,
           "options": {
@@ -2966,7 +2966,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 35
+            "y": 19
           },
           "id": 12,
           "options": {
@@ -3184,7 +3184,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 43
+            "y": 27
           },
           "id": 53,
           "options": {
@@ -3302,7 +3302,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 43
+            "y": 27
           },
           "id": 44,
           "options": {
@@ -3666,7 +3666,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -3712,7 +3713,8 @@
                       "mode": "percentage",
                       "steps": [
                         {
-                          "color": "green"
+                          "color": "green",
+                          "value": null
                         },
                         {
                           "color": "red",
@@ -3750,7 +3752,8 @@
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "green"
+                          "color": "green",
+                          "value": null
                         },
                         {
                           "color": "yellow",
@@ -3812,7 +3815,8 @@
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "green"
+                          "color": "green",
+                          "value": null
                         },
                         {
                           "color": "yellow",
@@ -3926,7 +3930,8 @@
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "red"
+                          "color": "red",
+                          "value": null
                         },
                         {
                           "color": "green",
@@ -3964,7 +3969,8 @@
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "green"
+                          "color": "green",
+                          "value": null
                         },
                         {
                           "color": "red",
@@ -3997,6 +4003,68 @@
                     "value": true
                   }
                 ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RT (90th)"
+                },
+                "properties": [
+                  {
+                    "id": "unit",
+                    "value": "ms"
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "green",
+                          "value": null
+                        },
+                        {
+                          "color": "yellow",
+                          "value": 100
+                        },
+                        {
+                          "color": "orange",
+                          "value": 200
+                        },
+                        {
+                          "color": "red",
+                          "value": 500
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "match": "null",
+                          "result": {
+                            "color": "transparent",
+                            "index": 0,
+                            "text": "-"
+                          }
+                        },
+                        "type": "special"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "custom.width",
+                    "value": 150
+                  },
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "type": "color-background"
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -4004,7 +4072,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 21
+            "y": 5
           },
           "id": 46,
           "options": {
@@ -4168,6 +4236,59 @@
                 [
                   {
                     "params": [
+                      "pct90.0"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  },
+                  {
+                    "params": [
+                      "resTime90"
+                    ],
+                    "type": "alias"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "application",
+                  "operator": "=~",
+                  "value": "/^$application$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "transaction",
+                  "operator": "!=",
+                  "value": "all"
+                }
+              ]
+            },
+            {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "${DS_INFLUXDB}"
+              },
+              "groupBy": [
+                {
+                  "params": [
+                    "transaction"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "hide": false,
+              "measurement": "jmeter",
+              "orderByTime": "ASC",
+              "policy": "autogen",
+              "refId": "D",
+              "resultFormat": "table",
+              "select": [
+                [
+                  {
+                    "params": [
                       "pct95.0"
                     ],
                     "type": "field"
@@ -4215,7 +4336,7 @@
               "measurement": "jmeter",
               "orderByTime": "ASC",
               "policy": "autogen",
-              "refId": "D",
+              "refId": "E",
               "resultFormat": "table",
               "select": [
                 [
@@ -4268,7 +4389,7 @@
               "measurement": "jmeter",
               "orderByTime": "ASC",
               "policy": "autogen",
-              "refId": "E",
+              "refId": "F",
               "resultFormat": "table",
               "select": [
                 [
@@ -4327,7 +4448,7 @@
               "measurement": "jmeter",
               "orderByTime": "ASC",
               "policy": "autogen",
-              "refId": "F",
+              "refId": "G",
               "resultFormat": "table",
               "select": [
                 [
@@ -4389,6 +4510,7 @@
                     "resTime99",
                     "rpsAvg",
                     "rpsMax",
+                    "resTime90",
                     "failReq"
                   ]
                 }
@@ -4483,14 +4605,12 @@
                   "passReq 2": true
                 },
                 "indexByName": {
-                  "error%": 8,
-                  "error% 2": 9,
+                  "error%": 9,
                   "failReq": 3,
-                  "failReq 2": 10,
                   "passReq": 2,
-                  "passReq 2": 11,
-                  "resTime95": 6,
-                  "resTime99": 7,
+                  "resTime90": 6,
+                  "resTime95": 7,
+                  "resTime99": 8,
                   "rpsAvg": 4,
                   "rpsMax": 5,
                   "totalReq": 1,
@@ -4504,6 +4624,7 @@
                   "error%": "Error Rate %",
                   "failReq": "Failed Req",
                   "passReq": "Pass Req",
+                  "resTime90": "RT (90th)",
                   "resTime95": "RT (95th)",
                   "resTime99": "RT (99th)",
                   "rpsAvg": "RPS (avg)",
@@ -4565,7 +4686,7 @@
                 "spanNulls": 60000,
                 "stacking": {
                   "group": "A",
-                  "mode": "normal"
+                  "mode": "none"
                 },
                 "thresholdsStyle": {
                   "mode": "off"
@@ -4589,7 +4710,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 22
+            "y": 15
           },
           "id": 26,
           "options": {
@@ -4670,8 +4791,8 @@
                 {
                   "condition": "AND",
                   "key": "transaction",
-                  "operator": "!=",
-                  "value": "all"
+                  "operator": "=~",
+                  "value": "/^$transaction$/"
                 }
               ]
             },
@@ -4730,8 +4851,8 @@
                 {
                   "condition": "AND",
                   "key": "transaction",
-                  "operator": "!=",
-                  "value": "all"
+                  "operator": "=~",
+                  "value": "/^$transaction$/"
                 }
               ]
             }
@@ -4774,7 +4895,7 @@
                 "spanNulls": 60000,
                 "stacking": {
                   "group": "A",
-                  "mode": "normal"
+                  "mode": "none"
                 },
                 "thresholdsStyle": {
                   "mode": "off"
@@ -4798,7 +4919,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 22
+            "y": 15
           },
           "id": 27,
           "options": {
@@ -4879,8 +5000,8 @@
                 {
                   "condition": "AND",
                   "key": "transaction",
-                  "operator": "!=",
-                  "value": "all"
+                  "operator": "=~",
+                  "value": "/^$transaction$/"
                 }
               ]
             },
@@ -4939,8 +5060,8 @@
                 {
                   "condition": "AND",
                   "key": "transaction",
-                  "operator": "!=",
-                  "value": "all"
+                  "operator": "=~",
+                  "value": "/^$transaction$/"
                 }
               ]
             }
@@ -4963,7 +5084,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "InfluxDB",
           "value": "InfluxDB"
         },
@@ -5070,6 +5191,6 @@
   "timezone": "",
   "title": "jmeter-dashboard-influxdb",
   "uid": "a612dc52-1277-4242-a2d9-bcfb19fbf09f",
-  "version": 62,
+  "version": 9,
   "weekStart": ""
 }
