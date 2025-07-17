@@ -5,6 +5,8 @@
 [Backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener)
 в InfluxDB (Query Language: InfluxQL).
 
+Аналогичный дашборд для VictoriaMetrics - [jmeter-dashboard-victoriametrics](https://github.com/promokk/jmeter-dashboard-victoriametrics).
+
 Дашборд доступен в [Grafana Labs](https://grafana.com/grafana/dashboards/21818-jmeter-dashboard-influxdb/).
 
 ---
